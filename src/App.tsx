@@ -144,7 +144,7 @@ const About = () => {
     <section id="about" className="py-24 md:py-40 bg-white overflow-hidden font-sans">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-20 items-start">
-          <div className="lg:w-1/2 sticky top-32">
+          <div className="lg:w-1/2 lg:sticky lg:top-32">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -154,7 +154,7 @@ const About = () => {
               <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-[10px] font-bold uppercase tracking-widest mb-8">
                 Our Philosophy
               </span>
-              <h2 className="text-2xl md:text-3xl font-display font-bold leading-tight mb-10 tracking-tight text-black">
+              <h2 className="text-xl md:text-2xl font-display font-bold leading-tight mb-10 tracking-tight text-black">
                 우리는 단순한 웹사이트가 아닌,<br />
                 <span className="text-blue-600">비즈니스의 가속기</span>를 만듭니다.
               </h2>
@@ -183,7 +183,7 @@ const About = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1 }}
-              className="relative rounded-[40px] overflow-hidden aspect-[4/5] bg-gray-100"
+              className="relative rounded-[40px] overflow-hidden aspect-[4/3] bg-gray-100"
             >
               <img 
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" 
@@ -192,7 +192,7 @@ const About = () => {
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-12 text-white">
-                <h4 className="text-2xl font-bold mb-4">전략이 디자인을 이끕니다.</h4>
+                <h4 className="text-xl font-bold mb-4">전략이 디자인을 이끕니다.</h4>
                 <p className="text-white/80 font-light">모든 픽셀에는 이유가 있어야 하며, 모든 버튼은 목적이 있어야 합니다.</p>
               </div>
             </motion.div>
