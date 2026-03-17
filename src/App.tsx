@@ -471,14 +471,14 @@ const Product = () => {
 
 const Portfolio = () => {
   const images = [
-    "https://picsum.photos/seed/web1/800/800",
-    "https://picsum.photos/seed/web2/800/800",
-    "https://picsum.photos/seed/web3/800/800",
-    "https://picsum.photos/seed/web4/800/800",
-    "https://picsum.photos/seed/web5/800/800",
-    "https://picsum.photos/seed/web6/800/800",
-    "https://picsum.photos/seed/web7/800/800",
-    "https://picsum.photos/seed/web8/800/800",
+    "https://raw.githubusercontent.com/flowlab02/flowlab/refs/heads/img/1.png",
+    "https://raw.githubusercontent.com/flowlab02/flowlab/refs/heads/img/2.png",
+    "https://raw.githubusercontent.com/flowlab02/flowlab/refs/heads/img/3.png",
+    "https://raw.githubusercontent.com/flowlab02/flowlab/refs/heads/img/4.png",
+    "https://raw.githubusercontent.com/flowlab02/flowlab/refs/heads/img/5.png",
+    "https://raw.githubusercontent.com/flowlab02/flowlab/refs/heads/img/6.png",
+    "https://raw.githubusercontent.com/flowlab02/flowlab/refs/heads/img/7.png",
+    "https://raw.githubusercontent.com/flowlab02/flowlab/refs/heads/img/8.png",
   ];
 
   return (
@@ -493,7 +493,7 @@ const Portfolio = () => {
       <div className="relative flex overflow-hidden">
         <div className="flex animate-marquee whitespace-nowrap">
           {[...images, ...images].map((src, idx) => (
-            <div key={idx} className="w-[300px] md:w-[400px] aspect-square mx-3 rounded-3xl overflow-hidden group relative">
+            <div key={idx} className="w-[350px] md:w-[450px] aspect-[4/3] mx-3 rounded-3xl overflow-hidden group relative">
               <img 
                 src={src} 
                 alt={`Portfolio ${idx}`} 
