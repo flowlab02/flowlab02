@@ -169,29 +169,29 @@ const About = () => {
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 max-w-md mx-auto lg:mx-0">
             <div className="space-y-4">
-              <div className="bento-card p-8 aspect-square flex flex-col justify-end bg-blue-50">
-                <TrendingUp className="text-blue-600 mb-4" size={32} />
-                <h4 className="font-bold text-base mb-2">매출 증대</h4>
-                <p className="text-sm text-black/50">전환율 최적화 설계</p>
+              <div className="bento-card p-6 aspect-square flex flex-col justify-end bg-blue-50">
+                <TrendingUp className="text-blue-600 mb-4" size={24} />
+                <h4 className="font-bold text-base mb-1">매출 증대</h4>
+                <p className="text-xs text-black/50">전환율 최적화 설계</p>
               </div>
-              <div className="bento-card p-8 aspect-[3/4] flex flex-col justify-end">
-                <Target className="text-black mb-4" size={32} />
-                <h4 className="font-bold text-base mb-2">전략적 기획</h4>
-                <p className="text-sm text-black/50">비즈니스 모델 분석</p>
+              <div className="bento-card p-6 aspect-[4/5] flex flex-col justify-end">
+                <Target className="text-black mb-4" size={24} />
+                <h4 className="font-bold text-base mb-1">전략적 기획</h4>
+                <p className="text-xs text-black/50">비즈니스 모델 분석</p>
               </div>
             </div>
             <div className="space-y-4 pt-8">
-              <div className="bento-card p-8 aspect-[3/4] flex flex-col justify-end">
-                <Zap className="text-black mb-4" size={32} />
-                <h4 className="font-bold text-base mb-2">빠른 속도</h4>
-                <p className="text-sm text-black/50">최적화된 퍼포먼스</p>
+              <div className="bento-card p-6 aspect-[4/5] flex flex-col justify-end">
+                <Zap className="text-black mb-4" size={24} />
+                <h4 className="font-bold text-base mb-1">빠른 속도</h4>
+                <p className="text-xs text-black/50">최적화된 퍼포먼스</p>
               </div>
-              <div className="bento-card p-8 aspect-square flex flex-col justify-end">
-                <ShieldCheck className="text-blue-600 mb-4" size={32} />
-                <h4 className="font-bold text-base mb-2 text-black">신뢰 구축</h4>
-                <p className="text-sm text-black/50">브랜드 가치 상승</p>
+              <div className="bento-card p-6 aspect-square flex flex-col justify-end">
+                <ShieldCheck className="text-blue-600 mb-4" size={24} />
+                <h4 className="font-bold text-base mb-1 text-black">신뢰 구축</h4>
+                <p className="text-xs text-black/50">브랜드 가치 상승</p>
               </div>
             </div>
           </div>
@@ -500,9 +500,6 @@ const Portfolio = () => {
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span className="px-6 py-2 bg-white text-black rounded-full font-medium">View Project</span>
-              </div>
             </div>
           ))}
         </div>
@@ -519,10 +516,28 @@ const Contact = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('상담 신청이 접수되었습니다. 곧 연락드리겠습니다!');
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    
+    try {
+      const response = await fetch('https://formspree.io/f/mqeygkan', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        alert('상담 신청이 완료되었습니다. 곧 연락드리겠습니다.');
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        alert('오류가 발생했습니다. 다시 시도해주세요.');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('네트워크 오류가 발생했습니다.');
+    }
   };
 
   return (
