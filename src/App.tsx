@@ -141,59 +141,63 @@ const Hero = () => {
 
 const About = () => {
   return (
-    <section id="about" className="py-24 md:py-32 bg-white">
+    <section id="about" className="py-24 md:py-40 bg-white overflow-hidden font-sans">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-4">About Us</h2>
-            <h3 className="text-xl md:text-2xl font-display font-bold mb-8 leading-tight">
-              단순히 예쁜 디자인이 아닌,<br />
-              <span className="text-black/40">매출을 만드는 설계.</span>
-            </h3>
-            <div className="space-y-6 text-lg text-black/60 font-light leading-relaxed">
-              <p>
-                웹사이트는 기업의 얼굴이자 가장 강력한 영업 도구여야 합니다. 
-                Flow Lab은 시각적인 아름다움을 넘어, 사용자의 행동을 유도하고 
-                실제 비즈니스 성과로 이어지는 최적의 UX를 연구합니다.
+        <div className="flex flex-col lg:flex-row gap-20 items-start">
+          <div className="lg:w-1/2 sticky top-32">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-[10px] font-bold uppercase tracking-widest mb-8">
+                Our Philosophy
+              </span>
+              <h2 className="text-2xl md:text-3xl font-display font-bold leading-tight mb-10 tracking-tight text-black">
+                우리는 단순한 웹사이트가 아닌,<br />
+                <span className="text-blue-600">비즈니스의 가속기</span>를 만듭니다.
+              </h2>
+              <p className="text-lg text-black/60 font-light leading-relaxed mb-12 max-w-xl">
+                Flow Lab은 시각적인 화려함에만 매몰되지 않습니다. 
+                우리는 데이터와 심리학을 기반으로 사용자의 행동을 설계하고, 
+                브랜드의 가치가 매출로 직결되는 최적의 경로를 구축합니다.
               </p>
-              <p>
-                우리는 고객사의 비즈니스 모델을 깊이 이해하고, 
-                타겟 고객이 원하는 정보를 가장 효과적으로 전달할 수 있는 
-                전략적 웹사이트를 구축합니다.
-              </p>
-            </div>
-          </motion.div>
+              
+              <div className="flex flex-wrap gap-12">
+                <div>
+                  <div className="text-4xl font-display font-bold text-black mb-2">98%</div>
+                  <div className="text-sm text-black/40 uppercase tracking-wider">Client Satisfaction</div>
+                </div>
+                <div>
+                  <div className="text-4xl font-display font-bold text-black mb-2">2.5x</div>
+                  <div className="text-sm text-black/40 uppercase tracking-wider">Avg. Conversion Lift</div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
 
-          <div className="grid grid-cols-2 gap-4 max-w-md mx-auto lg:mx-0">
-            <div className="space-y-4">
-              <div className="bento-card p-6 aspect-square flex flex-col justify-end bg-blue-50">
-                <TrendingUp className="text-blue-600 mb-4" size={24} />
-                <h4 className="font-bold text-base mb-1">매출 증대</h4>
-                <p className="text-xs text-black/50">전환율 최적화 설계</p>
+          <div className="lg:w-1/2 space-y-12">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="relative rounded-[40px] overflow-hidden aspect-[4/5] bg-gray-100"
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" 
+                alt="Flow Lab Corporate" 
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-12 text-white">
+                <h4 className="text-2xl font-bold mb-4">전략이 디자인을 이끕니다.</h4>
+                <p className="text-white/80 font-light">모든 픽셀에는 이유가 있어야 하며, 모든 버튼은 목적이 있어야 합니다.</p>
               </div>
-              <div className="bento-card p-6 aspect-[4/5] flex flex-col justify-end">
-                <Target className="text-black mb-4" size={24} />
-                <h4 className="font-bold text-base mb-1">전략적 기획</h4>
-                <p className="text-xs text-black/50">비즈니스 모델 분석</p>
-              </div>
-            </div>
-            <div className="space-y-4 pt-8">
-              <div className="bento-card p-6 aspect-[4/5] flex flex-col justify-end">
-                <Zap className="text-black mb-4" size={24} />
-                <h4 className="font-bold text-base mb-1">빠른 속도</h4>
-                <p className="text-xs text-black/50">최적화된 퍼포먼스</p>
-              </div>
-              <div className="bento-card p-6 aspect-square flex flex-col justify-end">
-                <ShieldCheck className="text-blue-600 mb-4" size={24} />
-                <h4 className="font-bold text-base mb-1 text-black">신뢰 구축</h4>
-                <p className="text-xs text-black/50">브랜드 가치 상승</p>
-              </div>
-            </div>
+            </motion.div>
+
+
           </div>
         </div>
       </div>
